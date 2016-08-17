@@ -1,27 +1,32 @@
 //
-//  ViewController.m
+//  KEGHomeViewController.m
 //  GoEuro
 //
 //  Created by Kevin Elorza on 8/17/16.
 //  Copyright © 2016 Kevin Elorza. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "KEGHomeViewController.h"
+#import "KEGHomeView.h"
 
-@interface ViewController ()
+@interface KEGHomeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation KEGHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (void)loadView {
+    self.view = [[KEGHomeView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 @end

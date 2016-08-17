@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  KEGHomeView.h
 //  GoEuro
 //
 //  Created by Kevin Elorza on 8/17/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface KEGHomeView : UIView
 
 @end
-

@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0A86F8C11D64BF5200192D38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8C01D64BF5200192D38 /* main.m */; };
 		0A86F8C41D64BF5200192D38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8C31D64BF5200192D38 /* AppDelegate.m */; };
-		0A86F8C71D64BF5200192D38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8C61D64BF5200192D38 /* ViewController.m */; };
-		0A86F8CA1D64BF5200192D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A86F8C81D64BF5200192D38 /* Main.storyboard */; };
 		0A86F8CC1D64BF5200192D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A86F8CB1D64BF5200192D38 /* Assets.xcassets */; };
 		0A86F8CF1D64BF5200192D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */; };
 		0A86F8DA1D64BF5200192D38 /* GoEuroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8D91D64BF5200192D38 /* GoEuroTests.m */; };
+		0A86F8E71D64C00300192D38 /* KEGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8E61D64C00300192D38 /* KEGHomeViewController.m */; };
+		0A86F8EB1D64C08000192D38 /* KEGHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8EA1D64C08000192D38 /* KEGHomeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,15 +31,16 @@
 		0A86F8C01D64BF5200192D38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0A86F8C21D64BF5200192D38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0A86F8C31D64BF5200192D38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0A86F8C51D64BF5200192D38 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0A86F8C61D64BF5200192D38 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0A86F8C91D64BF5200192D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A86F8CB1D64BF5200192D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A86F8CE1D64BF5200192D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A86F8D01D64BF5200192D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A86F8D51D64BF5200192D38 /* GoEuroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoEuroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A86F8D91D64BF5200192D38 /* GoEuroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoEuroTests.m; sourceTree = "<group>"; };
 		0A86F8DB1D64BF5200192D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A86F8E51D64C00300192D38 /* KEGHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGHomeViewController.h; path = Controllers/KEGHomeViewController.h; sourceTree = "<group>"; };
+		0A86F8E61D64C00300192D38 /* KEGHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGHomeViewController.m; path = Controllers/KEGHomeViewController.m; sourceTree = "<group>"; };
+		0A86F8E91D64C08000192D38 /* KEGHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGHomeView.h; path = Views/KEGHomeView.h; sourceTree = "<group>"; };
+		0A86F8EA1D64C08000192D38 /* KEGHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGHomeView.m; path = Views/KEGHomeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,15 +82,9 @@
 		0A86F8BE1D64BF5200192D38 /* GoEuro */ = {
 			isa = PBXGroup;
 			children = (
-				0A86F8C21D64BF5200192D38 /* AppDelegate.h */,
-				0A86F8C31D64BF5200192D38 /* AppDelegate.m */,
-				0A86F8C51D64BF5200192D38 /* ViewController.h */,
-				0A86F8C61D64BF5200192D38 /* ViewController.m */,
-				0A86F8C81D64BF5200192D38 /* Main.storyboard */,
-				0A86F8CB1D64BF5200192D38 /* Assets.xcassets */,
-				0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */,
-				0A86F8D01D64BF5200192D38 /* Info.plist */,
 				0A86F8BF1D64BF5200192D38 /* Supporting Files */,
+				0A86F8E81D64C01500192D38 /* Controllers */,
+				0A86F8EC1D64C08500192D38 /* Views */,
 			);
 			path = GoEuro;
 			sourceTree = "<group>";
@@ -97,6 +92,11 @@
 		0A86F8BF1D64BF5200192D38 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A86F8C21D64BF5200192D38 /* AppDelegate.h */,
+				0A86F8C31D64BF5200192D38 /* AppDelegate.m */,
+				0A86F8CB1D64BF5200192D38 /* Assets.xcassets */,
+				0A86F8D01D64BF5200192D38 /* Info.plist */,
+				0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */,
 				0A86F8C01D64BF5200192D38 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -109,6 +109,24 @@
 				0A86F8DB1D64BF5200192D38 /* Info.plist */,
 			);
 			path = GoEuroTests;
+			sourceTree = "<group>";
+		};
+		0A86F8E81D64C01500192D38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0A86F8E51D64C00300192D38 /* KEGHomeViewController.h */,
+				0A86F8E61D64C00300192D38 /* KEGHomeViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0A86F8EC1D64C08500192D38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A86F8E91D64C08000192D38 /* KEGHomeView.h */,
+				0A86F8EA1D64C08000192D38 /* KEGHomeView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +211,6 @@
 			files = (
 				0A86F8CF1D64BF5200192D38 /* LaunchScreen.storyboard in Resources */,
 				0A86F8CC1D64BF5200192D38 /* Assets.xcassets in Resources */,
-				0A86F8CA1D64BF5200192D38 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,9 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A86F8C71D64BF5200192D38 /* ViewController.m in Sources */,
 				0A86F8C41D64BF5200192D38 /* AppDelegate.m in Sources */,
+				0A86F8EB1D64C08000192D38 /* KEGHomeView.m in Sources */,
 				0A86F8C11D64BF5200192D38 /* main.m in Sources */,
+				0A86F8E71D64C00300192D38 /* KEGHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +254,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0A86F8C81D64BF5200192D38 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A86F8C91D64BF5200192D38 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -343,7 +353,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = GoEuro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevineg.GoEuro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,7 +366,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = GoEuro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevineg.GoEuro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
