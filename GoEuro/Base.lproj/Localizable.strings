@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  GoEuro
+
+  Created by Kevin Elorza on 8/18/16.
+  Copyright © 2016 Kevin Elorza. All rights reserved.
+*/
+
+"Direct" = "Direct";
+"OneStop" = "One stop";
+"ManyStops" = " stops";
+"InternetConnectionNotAvailable" = "Please check your internet connection";

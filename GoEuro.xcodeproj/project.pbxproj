@@ -14,6 +14,24 @@
 		0A86F8DA1D64BF5200192D38 /* GoEuroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8D91D64BF5200192D38 /* GoEuroTests.m */; };
 		0A86F8E71D64C00300192D38 /* KEGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8E61D64C00300192D38 /* KEGHomeViewController.m */; };
 		0A86F8EB1D64C08000192D38 /* KEGHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8EA1D64C08000192D38 /* KEGHomeView.m */; };
+		0A86F8EF1D64DD1B00192D38 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8EE1D64DD1B00192D38 /* Extensions.swift */; };
+		0A86F8F21D64DF3800192D38 /* UIImage+EnumInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8F11D64DF3800192D38 /* UIImage+EnumInitializer.m */; };
+		0A86F8F41D64E34B00192D38 /* UIStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8F31D64E34B00192D38 /* UIStuff.m */; };
+		0A86F8F51D64E47400192D38 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8EE1D64DD1B00192D38 /* Extensions.swift */; };
+		0A86F8F91D64EAC100192D38 /* UIColor+GoEuroColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8F81D64EAC100192D38 /* UIColor+GoEuroColor.m */; };
+		0A86F9031D64F8F400192D38 /* KEGJourney.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9021D64F8F400192D38 /* KEGJourney.m */; };
+		0A86F9051D64FB0200192D38 /* KEGJourneyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9041D64FB0200192D38 /* KEGJourneyTests.m */; };
+		0A86F9081D6539F600192D38 /* KEGWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9071D6539F600192D38 /* KEGWebService.m */; };
+		0A86F90B1D659D3800192D38 /* KEGBusJourney.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F90A1D659D3800192D38 /* KEGBusJourney.m */; };
+		0A86F90D1D65A79200192D38 /* JourneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F90C1D65A79200192D38 /* JourneyTableViewCell.swift */; };
+		0A86F9131D65B7C600192D38 /* KEGTrainJourney.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9121D65B7C600192D38 /* KEGTrainJourney.m */; };
+		0A86F9161D65B7FC00192D38 /* KEGFlightJourney.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9151D65B7FC00192D38 /* KEGFlightJourney.m */; };
+		0A86F91A1D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9191D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m */; };
+		0A86F9201D66AFCB00192D38 /* KEGLocalizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F91F1D66AFCB00192D38 /* KEGLocalizable.m */; };
+		0A86F9231D66B1D200192D38 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A86F9251D66B1D200192D38 /* Localizable.strings */; };
+		0A86F9291D66DFE300192D38 /* KEGDataGatherer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F9281D66DFE300192D38 /* KEGDataGatherer.m */; };
+		8CDE2C9FBEF26DE557E544C1 /* libPods-GoEuro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 109BA37D397911F9337A5791 /* libPods-GoEuro.a */; };
+		A60DF07C7407F99C90682BBD /* libPods-GoEuroTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A057B4558CCDCC7015462F03 /* libPods-GoEuroTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +59,41 @@
 		0A86F8E61D64C00300192D38 /* KEGHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGHomeViewController.m; path = Controllers/KEGHomeViewController.m; sourceTree = "<group>"; };
 		0A86F8E91D64C08000192D38 /* KEGHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGHomeView.h; path = Views/KEGHomeView.h; sourceTree = "<group>"; };
 		0A86F8EA1D64C08000192D38 /* KEGHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGHomeView.m; path = Views/KEGHomeView.m; sourceTree = "<group>"; };
+		0A86F8ED1D64DD1B00192D38 /* GoEuro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoEuro-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A86F8EE1D64DD1B00192D38 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = "Supporting Files/Extensions.swift"; sourceTree = "<group>"; };
+		0A86F8F01D64DF3800192D38 /* UIImage+EnumInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+EnumInitializer.h"; path = "Supporting Files/UIImage+EnumInitializer.h"; sourceTree = "<group>"; };
+		0A86F8F11D64DF3800192D38 /* UIImage+EnumInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+EnumInitializer.m"; path = "Supporting Files/UIImage+EnumInitializer.m"; sourceTree = "<group>"; };
+		0A86F8F31D64E34B00192D38 /* UIStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStuff.m; sourceTree = "<group>"; };
+		0A86F8F61D64E62C00192D38 /* GoEuroTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoEuroTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A86F8F71D64EAC100192D38 /* UIColor+GoEuroColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+GoEuroColor.h"; path = "Supporting Files/UIColor+GoEuroColor.h"; sourceTree = "<group>"; };
+		0A86F8F81D64EAC100192D38 /* UIColor+GoEuroColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+GoEuroColor.m"; path = "Supporting Files/UIColor+GoEuroColor.m"; sourceTree = "<group>"; };
+		0A86F8FB1D64EB2B00192D38 /* UIStuffHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIStuffHeader.h; sourceTree = "<group>"; };
+		0A86F9011D64F8F400192D38 /* KEGJourney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGJourney.h; path = Model/KEGJourney.h; sourceTree = "<group>"; };
+		0A86F9021D64F8F400192D38 /* KEGJourney.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGJourney.m; path = Model/KEGJourney.m; sourceTree = "<group>"; };
+		0A86F9041D64FB0200192D38 /* KEGJourneyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KEGJourneyTests.m; sourceTree = "<group>"; };
+		0A86F9061D6539F600192D38 /* KEGWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGWebService.h; path = Services/KEGWebService.h; sourceTree = "<group>"; };
+		0A86F9071D6539F600192D38 /* KEGWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGWebService.m; path = Services/KEGWebService.m; sourceTree = "<group>"; };
+		0A86F9091D659D3800192D38 /* KEGBusJourney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGBusJourney.h; path = Model/KEGBusJourney.h; sourceTree = "<group>"; };
+		0A86F90A1D659D3800192D38 /* KEGBusJourney.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGBusJourney.m; path = Model/KEGBusJourney.m; sourceTree = "<group>"; };
+		0A86F90C1D65A79200192D38 /* JourneyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JourneyTableViewCell.swift; path = Views/JourneyTableViewCell.swift; sourceTree = "<group>"; };
+		0A86F9111D65B7C600192D38 /* KEGTrainJourney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGTrainJourney.h; path = Model/KEGTrainJourney.h; sourceTree = "<group>"; };
+		0A86F9121D65B7C600192D38 /* KEGTrainJourney.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGTrainJourney.m; path = Model/KEGTrainJourney.m; sourceTree = "<group>"; };
+		0A86F9141D65B7FC00192D38 /* KEGFlightJourney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGFlightJourney.h; path = Model/KEGFlightJourney.h; sourceTree = "<group>"; };
+		0A86F9151D65B7FC00192D38 /* KEGFlightJourney.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGFlightJourney.m; path = Model/KEGFlightJourney.m; sourceTree = "<group>"; };
+		0A86F9171D6692A600192D38 /* KEGConfigurableJourneyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGConfigurableJourneyTableViewCell.h; path = Views/KEGConfigurableJourneyTableViewCell.h; sourceTree = "<group>"; };
+		0A86F9181D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KEGJourneyTableViewCell+ConfigurableCell.h"; path = "Views/KEGJourneyTableViewCell+ConfigurableCell.h"; sourceTree = "<group>"; };
+		0A86F9191D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "KEGJourneyTableViewCell+ConfigurableCell.m"; path = "Views/KEGJourneyTableViewCell+ConfigurableCell.m"; sourceTree = "<group>"; };
+		0A86F91E1D66AFCB00192D38 /* KEGLocalizable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGLocalizable.h; path = "Supporting Files/KEGLocalizable.h"; sourceTree = "<group>"; };
+		0A86F91F1D66AFCB00192D38 /* KEGLocalizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGLocalizable.m; path = "Supporting Files/KEGLocalizable.m"; sourceTree = "<group>"; };
+		0A86F9241D66B1D200192D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A86F9271D66DFE300192D38 /* KEGDataGatherer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGDataGatherer.h; path = Services/KEGDataGatherer.h; sourceTree = "<group>"; };
+		0A86F9281D66DFE300192D38 /* KEGDataGatherer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGDataGatherer.m; path = Services/KEGDataGatherer.m; sourceTree = "<group>"; };
+		109BA37D397911F9337A5791 /* libPods-GoEuro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoEuro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B0638F3D3FCED1A09D62DE /* Pods-GoEuro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoEuro.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro.release.xcconfig"; sourceTree = "<group>"; };
+		43500B9E68C93160AC725551 /* Pods-GoEuroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoEuroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoEuroTests/Pods-GoEuroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		731B5070757C83EFD9137941 /* Pods-GoEuroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoEuroTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoEuroTests/Pods-GoEuroTests.release.xcconfig"; sourceTree = "<group>"; };
+		A057B4558CCDCC7015462F03 /* libPods-GoEuroTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoEuroTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01E24B285FDFF7752D0075B /* Pods-GoEuro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoEuro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDE2C9FBEF26DE557E544C1 /* libPods-GoEuro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A60DF07C7407F99C90682BBD /* libPods-GoEuroTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +122,8 @@
 				0A86F8BE1D64BF5200192D38 /* GoEuro */,
 				0A86F8D81D64BF5200192D38 /* GoEuroTests */,
 				0A86F8BD1D64BF5200192D38 /* Products */,
+				D56E9DC6DC05D80DC4FEC5F5 /* Pods */,
+				7C1782C9AFFF500151DA7705 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,8 +139,10 @@
 		0A86F8BE1D64BF5200192D38 /* GoEuro */ = {
 			isa = PBXGroup;
 			children = (
-				0A86F8BF1D64BF5200192D38 /* Supporting Files */,
 				0A86F8E81D64C01500192D38 /* Controllers */,
+				0A86F8FE1D64F51700192D38 /* Model */,
+				0A86F90E1D65AA1900192D38 /* Services */,
+				0A86F8BF1D64BF5200192D38 /* Supporting Files */,
 				0A86F8EC1D64C08500192D38 /* Views */,
 			);
 			path = GoEuro;
@@ -98,6 +157,11 @@
 				0A86F8D01D64BF5200192D38 /* Info.plist */,
 				0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */,
 				0A86F8C01D64BF5200192D38 /* main.m */,
+				0A86F8ED1D64DD1B00192D38 /* GoEuro-Bridging-Header.h */,
+				0A86F8FA1D64EAEC00192D38 /* Categories */,
+				0A86F91E1D66AFCB00192D38 /* KEGLocalizable.h */,
+				0A86F91F1D66AFCB00192D38 /* KEGLocalizable.m */,
+				0A86F9251D66B1D200192D38 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,8 +169,11 @@
 		0A86F8D81D64BF5200192D38 /* GoEuroTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A86F8F61D64E62C00192D38 /* GoEuroTests-Bridging-Header.h */,
 				0A86F8D91D64BF5200192D38 /* GoEuroTests.m */,
 				0A86F8DB1D64BF5200192D38 /* Info.plist */,
+				0A86F8F31D64E34B00192D38 /* UIStuff.m */,
+				0A86F9041D64FB0200192D38 /* KEGJourneyTests.m */,
 			);
 			path = GoEuroTests;
 			sourceTree = "<group>";
@@ -125,8 +192,71 @@
 			children = (
 				0A86F8E91D64C08000192D38 /* KEGHomeView.h */,
 				0A86F8EA1D64C08000192D38 /* KEGHomeView.m */,
+				0A86F90C1D65A79200192D38 /* JourneyTableViewCell.swift */,
+				0A86F9171D6692A600192D38 /* KEGConfigurableJourneyTableViewCell.h */,
+				0A86F9181D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.h */,
+				0A86F9191D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		0A86F8FA1D64EAEC00192D38 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0A86F8F71D64EAC100192D38 /* UIColor+GoEuroColor.h */,
+				0A86F8F81D64EAC100192D38 /* UIColor+GoEuroColor.m */,
+				0A86F8F01D64DF3800192D38 /* UIImage+EnumInitializer.h */,
+				0A86F8F11D64DF3800192D38 /* UIImage+EnumInitializer.m */,
+				0A86F8EE1D64DD1B00192D38 /* Extensions.swift */,
+				0A86F8FB1D64EB2B00192D38 /* UIStuffHeader.h */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		0A86F8FE1D64F51700192D38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A86F9011D64F8F400192D38 /* KEGJourney.h */,
+				0A86F9021D64F8F400192D38 /* KEGJourney.m */,
+				0A86F9091D659D3800192D38 /* KEGBusJourney.h */,
+				0A86F90A1D659D3800192D38 /* KEGBusJourney.m */,
+				0A86F9111D65B7C600192D38 /* KEGTrainJourney.h */,
+				0A86F9121D65B7C600192D38 /* KEGTrainJourney.m */,
+				0A86F9141D65B7FC00192D38 /* KEGFlightJourney.h */,
+				0A86F9151D65B7FC00192D38 /* KEGFlightJourney.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0A86F90E1D65AA1900192D38 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0A86F9061D6539F600192D38 /* KEGWebService.h */,
+				0A86F9071D6539F600192D38 /* KEGWebService.m */,
+				0A86F9271D66DFE300192D38 /* KEGDataGatherer.h */,
+				0A86F9281D66DFE300192D38 /* KEGDataGatherer.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		7C1782C9AFFF500151DA7705 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				109BA37D397911F9337A5791 /* libPods-GoEuro.a */,
+				A057B4558CCDCC7015462F03 /* libPods-GoEuroTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D56E9DC6DC05D80DC4FEC5F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C01E24B285FDFF7752D0075B /* Pods-GoEuro.debug.xcconfig */,
+				16B0638F3D3FCED1A09D62DE /* Pods-GoEuro.release.xcconfig */,
+				43500B9E68C93160AC725551 /* Pods-GoEuroTests.debug.xcconfig */,
+				731B5070757C83EFD9137941 /* Pods-GoEuroTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A86F8DE1D64BF5200192D38 /* Build configuration list for PBXNativeTarget "GoEuro" */;
 			buildPhases = (
+				63AD391FE951F1225C6D91AF /* [CP] Check Pods Manifest.lock */,
 				0A86F8B81D64BF5200192D38 /* Sources */,
 				0A86F8B91D64BF5200192D38 /* Frameworks */,
 				0A86F8BA1D64BF5200192D38 /* Resources */,
+				990A8B655368C41285CB4FDA /* [CP] Embed Pods Frameworks */,
+				AB8B01EB703A35A63A9B80BD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A86F8E11D64BF5200192D38 /* Build configuration list for PBXNativeTarget "GoEuroTests" */;
 			buildPhases = (
+				3634CC2315B21782DBA87DD8 /* [CP] Check Pods Manifest.lock */,
 				0A86F8D11D64BF5200192D38 /* Sources */,
 				0A86F8D21D64BF5200192D38 /* Frameworks */,
 				0A86F8D31D64BF5200192D38 /* Resources */,
+				7AF149411C29ACECB836246B /* [CP] Embed Pods Frameworks */,
+				9AD33E94C07D351FD0A382B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A86F8CF1D64BF5200192D38 /* LaunchScreen.storyboard in Resources */,
+				0A86F9231D66B1D200192D38 /* Localizable.strings in Resources */,
 				0A86F8CC1D64BF5200192D38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,15 +360,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3634CC2315B21782DBA87DD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		63AD391FE951F1225C6D91AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7AF149411C29ACECB836246B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoEuroTests/Pods-GoEuroTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		990A8B655368C41285CB4FDA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AD33E94C07D351FD0A382B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoEuroTests/Pods-GoEuroTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB8B01EB703A35A63A9B80BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoEuro/Pods-GoEuro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A86F8B81D64BF5200192D38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A86F9081D6539F600192D38 /* KEGWebService.m in Sources */,
+				0A86F9131D65B7C600192D38 /* KEGTrainJourney.m in Sources */,
 				0A86F8C41D64BF5200192D38 /* AppDelegate.m in Sources */,
+				0A86F8EF1D64DD1B00192D38 /* Extensions.swift in Sources */,
+				0A86F9031D64F8F400192D38 /* KEGJourney.m in Sources */,
 				0A86F8EB1D64C08000192D38 /* KEGHomeView.m in Sources */,
+				0A86F8F21D64DF3800192D38 /* UIImage+EnumInitializer.m in Sources */,
 				0A86F8C11D64BF5200192D38 /* main.m in Sources */,
+				0A86F9161D65B7FC00192D38 /* KEGFlightJourney.m in Sources */,
+				0A86F90D1D65A79200192D38 /* JourneyTableViewCell.swift in Sources */,
+				0A86F90B1D659D3800192D38 /* KEGBusJourney.m in Sources */,
+				0A86F91A1D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m in Sources */,
 				0A86F8E71D64C00300192D38 /* KEGHomeViewController.m in Sources */,
+				0A86F8F91D64EAC100192D38 /* UIColor+GoEuroColor.m in Sources */,
+				0A86F9201D66AFCB00192D38 /* KEGLocalizable.m in Sources */,
+				0A86F9291D66DFE300192D38 /* KEGDataGatherer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +481,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A86F8F51D64E47400192D38 /* Extensions.swift in Sources */,
+				0A86F8F41D64E34B00192D38 /* UIStuff.m in Sources */,
+				0A86F9051D64FB0200192D38 /* KEGJourneyTests.m in Sources */,
 				0A86F8DA1D64BF5200192D38 /* GoEuroTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +505,14 @@
 				0A86F8CE1D64BF5200192D38 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0A86F9251D66B1D200192D38 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A86F9241D66B1D200192D38 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -351,50 +604,73 @@
 		};
 		0A86F8DF1D64BF5200192D38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C01E24B285FDFF7752D0075B /* Pods-GoEuro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GoEuro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevineg.GoEuro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoEuro/GoEuro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0A86F8E01D64BF5200192D38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16B0638F3D3FCED1A09D62DE /* Pods-GoEuro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GoEuro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevineg.GoEuro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoEuro/GoEuro-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		0A86F8E21D64BF5200192D38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43500B9E68C93160AC725551 /* Pods-GoEuroTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GoEuroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevineg.GoEuroTests;
+				PRODUCT_MODULE_NAME = GoEuro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GoEuroTests/GoEuroTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoEuro.app/GoEuro";
 			};
 			name = Debug;
 		};
 		0A86F8E31D64BF5200192D38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 731B5070757C83EFD9137941 /* Pods-GoEuroTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = GoEuroTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevineg.GoEuroTests;
+				PRODUCT_MODULE_NAME = GoEuro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/GoEuroTests/GoEuroTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoEuro.app/GoEuro";
 			};
 			name = Release;
@@ -418,6 +694,7 @@
 				0A86F8E01D64BF5200192D38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A86F8E11D64BF5200192D38 /* Build configuration list for PBXNativeTarget "GoEuroTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +703,7 @@
 				0A86F8E31D64BF5200192D38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

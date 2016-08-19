@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iCarousel/iCarousel.h>
 
 @interface KEGHomeView : UIView
+
+@property (strong, nonatomic, nonnull) UIButton *trainButton;
+@property (strong, nonatomic, nonnull) UIButton *busButton;
+@property (strong, nonatomic, nonnull) UIButton *flightButton;
+@property (strong, nonatomic, nonnull) iCarousel *carousel;
 
 @end
