@@ -9,28 +9,26 @@
 #import "KEGHomeViewController.h"
 #import "KEGHomeView.h"
 #import "UIStuffHeader.h"
-#import <iCarousel/iCarousel.h>
-#import "KEGTrainJourney.h"
-#import "KEGBusJourney.h"
-#import "KEGFlightJourney.h"
 #import "GoEuro-Swift.h"
 #import "KEGJourneyTableViewCell+ConfigurableCell.h"
+#import "KEGDataGatherer.h"
+#import "KEGSelectorView.h"
 
-@interface KEGHomeViewController () <iCarouselDelegate, iCarouselDataSource, UITableViewDelegate, UITableViewDataSource>
+#define KEGJourneyCellID @"KEGJourneyCellID"
 
-NS_ASSUME_NONNULL_BEGIN
+@interface KEGHomeViewController () <UITableViewDelegate, UITableViewDataSource, KEGSelectionViewDelegate>
 
-@property (strong, nonatomic) UITableView *trainsTableView;
-@property (strong, nonatomic) UITableView *busesTableView;
-@property (strong, nonatomic) UITableView *flightsTableView;
 
-@property (weak, nonatomic) KEGHomeView *homeView;
+@property (weak, nonatomic) KEGHomeView * __nullable homeView;
 
-NS_ASSUME_NONNULL_END
+@property (assign, nonatomic) TravelModeType currentTravelMode;
 
-@property (strong, nonatomic, nullable) NSArray <KEGTrainJourney *> *trains;
-@property (strong, nonatomic, nullable) NSArray <KEGBusJourney *> *buses;
-@property (strong, nonatomic, nullable) NSArray <KEGFlightJourney *> *flights;
+@property (strong, nonatomic) NSArray <KEGJourney *> * __nullable trains;
+@property (strong, nonatomic) NSArray <KEGJourney *> * __nullable buses;
+@property (strong, nonatomic) NSArray <KEGJourney *> * __nullable flights;
+
+@property (assign, atomic) NSInteger dataCount;
+@property (strong, atomic) NSArray <KEGJourney *> * __nullable currentJourneys;
 
 @end
 
@@ -44,13 +42,31 @@ NS_ASSUME_NONNULL_END
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        
+    self.dataCount = 0;
     
-    self.homeView.carousel.delegate = self;
-    self.homeView.carousel.dataSource = self;
+    [self.homeView.journeysTableView registerClass:[JourneyTableViewCell class] forCellReuseIdentifier:KEGJourneyCellID];
     
-    [self.trainsTableView registerClass:[JourneyTableViewCell class] forCellReuseIdentifier:[self cellIdentifierForTravelMode:TravelModeTypeTrain]];
-    [self.busesTableView registerClass:[JourneyTableViewCell class] forCellReuseIdentifier:[self cellIdentifierForTravelMode:TravelModeTypeBus]];
-    [self.flightsTableView registerClass:[JourneyTableViewCell class] forCellReuseIdentifier:[self cellIdentifierForTravelMode:TravelModeTypeFlight]];
+    [KEGDataGatherer gatherJourneyDataForTravelMode:TravelModeTypeBus withPath:[KEGJourney webServicePathForTravelMode:TravelModeTypeBus] withCompletionHandler:^(NSArray<KEGJourney *> *journeys, DataResponseType responseType) {
+        self.buses = journeys;
+        [self dataGatheringPartialCompletion:journeys travelMode:TravelModeTypeBus];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [KEGDataGatherer gatherJourneyDataForTravelMode:TravelModeTypeTrain withPath:[KEGJourney webServicePathForTravelMode:TravelModeTypeTrain] withCompletionHandler:^(NSArray<KEGJourney *> *journeys, DataResponseType responseType) {
+        self.trains = journeys;
+        [self dataGatheringPartialCompletion:journeys travelMode:TravelModeTypeTrain];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [KEGDataGatherer gatherJourneyDataForTravelMode:TravelModeTypeFlight withPath:[KEGJourney webServicePathForTravelMode:TravelModeTypeFlight] withCompletionHandler:^(NSArray<KEGJourney *> *journeys, DataResponseType responseType) {
+        self.flights = journeys;
+        [self dataGatheringPartialCompletion:journeys travelMode:TravelModeTypeFlight];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,137 +82,75 @@ NS_ASSUME_NONNULL_END
     
 }
 
+- (void)dataGatheringPartialCompletion:(NSArray <KEGJourney *> *)journeys travelMode:(TravelModeType)travelMode {
+    if (!self.currentJourneys) {
+        self.currentTravelMode = travelMode;
+        self.currentJourneys = journeys;
+        self.homeView.journeysTableView.dataSource = self;
+        self.homeView.journeysTableView.delegate = self;
+        self.homeView.selectorView.delegate = self;
+        [self.homeView.selectorView changeSelectionTo:self.currentTravelMode];
+    }
+}
+
 #pragma mark - Properties
 
 - (KEGHomeView *)homeView {
     return (KEGHomeView *) self.view;
 }
 
-- (UITableView *)trainsTableView {
-    if (!_trainsTableView) {
-        _trainsTableView = [[UITableView alloc] init];
-        _trainsTableView.dataSource = self;
-        _trainsTableView.delegate = self;
-    }
-    return _trainsTableView;
-}
-
-- (UITableView *)busesTableView {
-    if (!_busesTableView) {
-        _busesTableView = [[UITableView alloc] init];
-        _busesTableView.dataSource = self;
-        _busesTableView.delegate = self;
-    }
-    return _busesTableView;
-}
-
-- (UITableView *)flightsTableView {
-    if (!_flightsTableView) {
-        _flightsTableView = [[UITableView alloc] init];
-        _flightsTableView.dataSource = self;
-        _flightsTableView.delegate = self;
-    }
-    return _flightsTableView;
-}
-
-#pragma mark - iCarousel
-
-#pragma mark Data source
-
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view {
-    
-    UITableView *tableView;
-    
-    switch (index) {
-        case TravelModeTypeBus:
-            tableView = self.busesTableView;
-            break;
-        case TravelModeTypeTrain:
-            tableView = self.trainsTableView;
-            break;
-        case TravelModeTypeFlight:
-            tableView = self.flightsTableView;
-            break;
-        default:
-            break;
-    }
-    
-    return tableView;
-}
-
-- (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
-    return 3;
-}
-
-#pragma mark Delegate
-
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
-    
-}
-
 #pragma mark - Table view
-
-- (nonnull NSString *)cellIdentifierForTravelMode:(TravelModeType)travelMode {
-    NSString *identifier = nil;
-    
-    switch (travelMode) {
-        case TravelModeTypeBus:
-            identifier = @"BusCellIdentifier";
-            break;
-        case TravelModeTypeTrain:
-            identifier = @"TrainCellIdentifier";
-            break;
-        case TravelModeTypeFlight:
-            identifier = @"FlightCellIdentifier";
-            break;
-    }
-    
-    return identifier;
-}
 
 #pragma mark Data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger rows = 0;
-    
-    if ([tableView isEqual:self.trainsTableView]) {
-        rows = self.trains.count;
-    } else if ([tableView isEqual:self.busesTableView]) {
-        rows = self.buses.count;
-    } else if ([tableView isEqual:self.flightsTableView]) {
-        rows = self.flights.count;
-    }
-    
-    return rows;
+    return self.currentJourneys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSArray <KEGJourney *> *source = nil;
-    TravelModeType travelMode = TravelModeTypeTrain;
+    KEGJourney *object = self.currentJourneys[indexPath.row];
     
-    if ([tableView isEqual:self.trainsTableView]) {
-        source = self.trains;
-        travelMode = TravelModeTypeTrain;
-    } else if ([tableView isEqual:self.busesTableView]) {
-        source = self.buses;
-        travelMode = TravelModeTypeBus;
-    } else if ([tableView isEqual:self.flightsTableView]) {
-        source = self.flights;
-        travelMode = TravelModeTypeFlight;
-    }
-    
-    NSString *identifier = [self cellIdentifierForTravelMode:travelMode];
-    
-    KEGJourney *object = source[indexPath.row];
-    
-    JourneyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    JourneyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:KEGJourneyCellID forIndexPath:indexPath];
     
     [cell configureCellForJourney:object];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return JourneyTableViewCell.defaultCellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return JourneyTableViewCell.defaultCellHeight;
+}
+
 #pragma mark Delegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.homeView animateCell:cell];
+}
+
+#pragma mark - Selector view delegate
+
+- (void)selectionWillChangeToTravelMode:(TravelModeType)travelMode {
+    self.currentTravelMode = travelMode;
+    
+    switch (self.currentTravelMode) {
+        case TravelModeTypeBus:
+            self.currentJourneys = self.buses;
+            break;
+        case TravelModeTypeFlight:
+            self.currentJourneys = self.flights;
+            break;
+        case TravelModeTypeTrain:
+            self.currentJourneys = self.trains;
+            break;
+    }
+    
+    [self.homeView reloadTableAnimated];
+}
 
 @end

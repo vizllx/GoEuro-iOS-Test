@@ -30,6 +30,15 @@
         case LocalizableIdentifierErrorInternetConnection:
             value = @"InternetConnectionNotAvailable";
             break;
+        case LocalizableIdentifierErrorWrongObject:
+            value = @"ErrorWrongObject";
+            break;
+        case LocalizableIdentifierErrorNoData:
+            value = @"ErrorNoData";
+            break;
+        case LocalizableIdentifierDuration:
+            value = @"Duration";
+            break;
     }
     
     return value;

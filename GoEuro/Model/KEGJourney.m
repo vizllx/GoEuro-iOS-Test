@@ -21,13 +21,19 @@
     @throw nil;
 }
 
-- (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)object {
+- (instancetype)initWithJSON:(NSDictionary<NSString *, id> *)object type:(TravelModeType)type {
     if (self = [super init]) {
         
-        self.numberOfChanges = [object[@"numberOfChanges"] integerValue];
+        self.type = type;
+        self.numberOfChanges = [object[@"number_of_stops"] integerValue];
         self.objectID = [object[@"id"] integerValue];
-        self.price = object[@"price_in_euros"];
-        self.providerLogo = object[@"provider_logo"];
+        self.price = [object[@"price_in_euros"] floatValue];
+        
+        NSString *providerLogo = object[@"provider_logo"];
+        
+        NSString *providerString = [providerLogo stringByReplacingOccurrencesOfString:@"{size}" withString:@"63"];
+        
+        self.providerLogoURL = [NSURL URLWithString:[providerString stringByReplacingOccurrencesOfString:@"http:" withString:@"https:"]];
         
         NSString *departureTimeString = object[@"departure_time"];
         NSString *arrivalTimeString = object[@"arrival_time"];
@@ -56,9 +62,50 @@
     return fabs(self.departureTime - arrivalTime);
 }
 
-- (NSURL *)providerLogoURLWithSize:(CGFloat)size {
-    NSString *providerString = [self.providerLogo stringByReplacingOccurrencesOfString:@"{size}" withString:[NSString stringWithFormat:@"%lf", size]];
-    return [NSURL URLWithString:providerString];
+- (NSString * __nonnull)iconForTravelMode:(TravelModeType)travelMode {
+    NSString *icon = nil;
+    
+    switch (travelMode) {
+        case TravelModeTypeFlight:
+            icon = @"🚍";
+            break;
+        case TravelModeTypeTrain:
+            icon = @"🚆";
+            break;
+        case TravelModeTypeBus:
+            icon = @"✈️";
+            break;
+    }
+    
+    return icon;
+}
+
++ (NSString *)webServicePathForTravelMode:(TravelModeType)travelMode {
+    NSString *path = nil;
+    
+    switch (travelMode) {
+        case TravelModeTypeFlight:
+            path = @"w60i";
+            break;
+        case TravelModeTypeTrain:
+            path = @"3zmcy";
+            break;
+        case TravelModeTypeBus:
+            path = @"37yzm";
+            break;
+    }
+    
+    return path;
+}
+
++ (NSArray <KEGJourney *>*)journeysFromObjects:(NSArray *)objects withType:(TravelModeType)type {
+    NSMutableArray *journeys = [NSMutableArray array];
+    
+    for (NSDictionary *object in objects) {
+        [journeys addObject:[[KEGJourney alloc] initWithJSON:object type:type]];
+    }
+    
+    return journeys;
 }
 
 @end

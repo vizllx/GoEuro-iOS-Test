@@ -73,6 +73,7 @@ extension UIFont {
         case Bold
         case Regular
         case Thin
+        case Mono
     }
     
     @objc class func goEuroFont(fontIdentifier: GoEuroFont, size: CGFloat) -> UIFont {
@@ -84,25 +85,39 @@ extension UIFont {
             if #available(iOS 8.2, *) {
                 font = UIFont.systemFontOfSize(size, weight: UIFontWeightBold)
             } else {
-                font = UIFont.systemFontOfSize(size)
+                font = UIFont(name: "HelveticaNeue-Bold", size: size)
             }
         case .Regular:
             if #available(iOS 8.2, *) {
                 font = UIFont.systemFontOfSize(size, weight: UIFontWeightRegular)
             } else {
-                font = UIFont.systemFontOfSize(size)
+                font = UIFont(name: "HelveticaNeue-Medium", size: size)
             }
         case .Thin:
             if #available(iOS 8.2, *) {
                 font = UIFont.systemFontOfSize(size, weight: UIFontWeightThin)
             } else {
-                font = UIFont.systemFontOfSize(size)
+                font = UIFont(name: "HelveticaNeue-Thin", size: size)
+            }
+        case .Mono:
+            if #available(iOS 9.0, *) {
+                font = UIFont.monospacedDigitSystemFontOfSize(size, weight: UIFontWeightThin)
+            } else {
+                font = UIFont(name: "CourierNewPSMT", size: size)
             }
         }
         
         guard let returnFont = font else { fatalError("😒") }
         
         return returnFont
+    }
+    
+}
+
+extension NSURL {
+    
+    @objc static var documentsURL: NSURL {
+        return try! NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
     }
     
 }

@@ -9,13 +9,25 @@
 #import <Foundation/Foundation.h>
 #import "KEGJourney.h"
 
-typedef void(^DataGatheringSuccess)(NSArray <KEGJourney *>* journeys);
+#define KEGDataErrorDomain @"com.kevineg.goeuro.Data"
+
+typedef NS_ENUM(NSUInteger, DataGatheringError) {
+    DataGatheringErrorWrongObject = 2000,
+    DataGatheringErrorNoData
+};
+
+typedef NS_ENUM(NSUInteger, DataResponseType) {
+    DataResponseTypeOnline,
+    DataResponseTypeOffline
+};
+
+typedef void(^DataGatheringSuccess)(NSArray <KEGJourney *>* journeys, DataResponseType responseType);
 typedef void(^DataGatheringFailure)(NSError *error);
 
 @interface KEGDataGatherer : NSObject
 
 + (void)gatherJourneyDataForTravelMode:(TravelModeType)travelMode
-                               withURL:(NSURL *)url
+                               withPath:(NSString *)path
                  withCompletionHandler:(DataGatheringSuccess)successBlock
                                failure:(DataGatheringFailure)failureBlock;
 

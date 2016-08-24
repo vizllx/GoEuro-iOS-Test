@@ -10,3 +10,6 @@
 "OneStop" = "One stop";
 "ManyStops" = " stops";
 "InternetConnectionNotAvailable" = "Please check your internet connection";
+"ErrorWrongObject" = "Hmm... We're having problems with our system. Try again later, please.";
+"ErrorNoData" = "Hmm... We coulnd't retrive data right now. Please, try again later.";
+"Duration" = "Duration";

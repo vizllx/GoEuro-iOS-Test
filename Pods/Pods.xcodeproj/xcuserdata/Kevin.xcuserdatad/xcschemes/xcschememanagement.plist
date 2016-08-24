@@ -24,15 +24,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>iCarousel.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>35FD37781F5C2AF60DD57695111EBB2D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>721C8026E7A3DC4A716889A1A676AE77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9494390523250106847516AB47E5F9FF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AEB562A78656CCD548FF270C5B0E544B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C96F2005579EC1B331F623DD45BB9E1C</key>
+		<key>DC1DC181ABA88E1E6DA701E895A05765</key>
 		<dict>
 			<key>primary</key>
 			<true/>

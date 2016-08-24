@@ -14,19 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - iCarousel (1.8.2)
   - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
-  - iCarousel (~> 1.8)
   - SDWebImage/Core (~> 3.8)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 45bd3e53aa35aa55b22a5ecc5b7f56ce1f4bdaa8
+PODFILE CHECKSUM: 93f4d28c86a0477a2a66296fa8d1c8d7772a56e4
 
 COCOAPODS: 1.0.1

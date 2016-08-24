@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "KEGHomeViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface AppDelegate ()
 
@@ -19,14 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     KEGHomeViewController *homeViewController = [[KEGHomeViewController alloc] init];
     UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     
-    self.window = [[UIWindow alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [SDWebImageManager sharedManager];
     
     return YES;
 }

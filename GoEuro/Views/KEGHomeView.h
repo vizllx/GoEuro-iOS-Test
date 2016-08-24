@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iCarousel/iCarousel.h>
+#import "KEGSelectorView.h"
 
 @interface KEGHomeView : UIView
 
-@property (strong, nonatomic, nonnull) UIButton *trainButton;
-@property (strong, nonatomic, nonnull) UIButton *busButton;
-@property (strong, nonatomic, nonnull) UIButton *flightButton;
-@property (strong, nonatomic, nonnull) iCarousel *carousel;
+NS_ASSUME_NONNULL_BEGIN
+
+@property (strong, nonatomic) KEGSelectorView *selectorView;
+@property (strong, nonatomic) UITableView *journeysTableView;
+
+- (void)animateCell:(UITableViewCell *)cell;
+
+NS_ASSUME_NONNULL_END
+
+- (void)reloadTableAnimated;
 
 @end

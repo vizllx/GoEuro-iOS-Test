@@ -16,7 +16,7 @@
     
     AFNetworkReachabilityStatus status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
     
-    if (status == AFNetworkReachabilityStatusNotReachable || status == AFNetworkReachabilityStatusUnknown) {
+    if (status == AFNetworkReachabilityStatusNotReachable) {
         
         NSError *error = [NSError errorWithDomain:KEGWebServiceErrorDomain code:WebServiceErrorInternetConnectionNotAvailable userInfo:@{ NSLocalizedDescriptionKey : [KEGLocalizable localizedString:LocalizableIdentifierErrorInternetConnection] }];
         errorBlock(error);

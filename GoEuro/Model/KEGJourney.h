@@ -33,16 +33,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) NSTimeInterval arrivalTime;
 @property (assign, nonatomic) NSTimeInterval departureTime;
 @property (assign, nonatomic) NSTimeInterval duration;
-@property (strong, nonatomic) NSNumber *price;
-
-// This is a really simple example of why there is subclasses of Journey: customization
+@property (assign, nonatomic) CGFloat price;
 @property (strong, nonatomic) NSString *icon;
+@property (strong, nonatomic) NSURL *providerLogoURL;
+@property (assign, nonatomic) TravelModeType type;
 
-- (NSURL *)providerLogoURLWithSize:(CGFloat)size;
-
-- (instancetype)initWithJSON:(NSDictionary <NSString *, id> *)object NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithJSON:(NSDictionary <NSString *, id> *)object type:(TravelModeType)type NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)init NS_UNAVAILABLE;
+
++ (NSString *)webServicePathForTravelMode:(TravelModeType)travelMode;
+
++ (NSArray <KEGJourney *>*)journeysFromObjects:(NSArray *)object withType:(TravelModeType)type;
 
 @end
 

@@ -11,6 +11,6 @@
 
 @protocol KEGConfigurableJourneyTableViewCell <NSObject>
 
-- (void)configureCellForJourney:(nonnull KEGJourney *)journey;
+- (void)configureCellForJourney:(KEGJourney * _Nonnull)journey;
 
 @end

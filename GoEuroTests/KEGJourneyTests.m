@@ -33,7 +33,7 @@
         @"departure_time"   : @"7:10",
         @"arrival_time"     : @"16:35"
     };
-    KEGJourney *journey = [[KEGJourney alloc] initWithJSON:JSON];
+    KEGJourney *journey = [[KEGJourney alloc] initWithJSON:JSON type:TravelModeTypeBus];
     
     // when
     NSTimeInterval duration = journey.duration;
@@ -156,14 +156,6 @@
     
     // test
     XCTAssertTrue(interval == -1);
-}
-
-- (void)testThatItThrowsWhenItIsNotASubclass {
-    
-    // given
-    
-    // test
-    XCTAssertThrows(KEGJourney.webServiceAPIURL);
 }
 
 @end
