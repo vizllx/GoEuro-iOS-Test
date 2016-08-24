@@ -39,6 +39,18 @@
         case LocalizableIdentifierDuration:
             value = @"Duration";
             break;
+        case LocalizableIdentifierSortBy:
+            value = @"SortBy";
+            break;
+        case LocalizableIdentifierArrival:
+            value = @"Arrival";
+            break;
+        case LocalizableIdentifierDeparture:
+            value = @"Departure";
+            break;
+        case LocalizableIdentifierPrice:
+            value = @"Price";
+            break;
     }
     
     return value;

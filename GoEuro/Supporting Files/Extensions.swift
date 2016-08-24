@@ -121,3 +121,30 @@ extension NSURL {
     }
     
 }
+
+extension UIImage {
+    
+    @objc func imageWithAlpha(alpha: CGFloat) -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        
+        let context = UIGraphicsGetCurrentContext()
+        let area = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        CGContextScaleCTM(context, 1, -1)
+        CGContextTranslateCTM(context, 0, -area.height)
+        
+        CGContextSetBlendMode(context, .Multiply)
+        
+        CGContextSetAlpha(context, alpha)
+        
+        CGContextDrawImage(context, area, self.CGImage)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+}

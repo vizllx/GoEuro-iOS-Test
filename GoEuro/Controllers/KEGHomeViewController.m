@@ -13,10 +13,12 @@
 #import "KEGJourneyTableViewCell+ConfigurableCell.h"
 #import "KEGDataGatherer.h"
 #import "KEGSelectorView.h"
+#import "UIImage+EnumInitializer.h"
+#import "KEGLocalizable.h"
 
 #define KEGJourneyCellID @"KEGJourneyCellID"
 
-@interface KEGHomeViewController () <UITableViewDelegate, UITableViewDataSource, KEGSelectionViewDelegate>
+@interface KEGHomeViewController () <UITableViewDelegate, UITableViewDataSource, KEGSelectionViewDelegate, UIAlertViewDelegate>
 
 
 @property (weak, nonatomic) KEGHomeView * __nullable homeView;
@@ -27,8 +29,12 @@
 @property (strong, nonatomic) NSArray <KEGJourney *> * __nullable buses;
 @property (strong, nonatomic) NSArray <KEGJourney *> * __nullable flights;
 
-@property (assign, atomic) NSInteger dataCount;
 @property (strong, atomic) NSArray <KEGJourney *> * __nullable currentJourneys;
+
+@property (assign, nonatomic) SortOption currentSortOption;
+
+@property (weak, nonatomic) UIBarButtonItem *sortBarButton;
+@property (weak, nonatomic) UILabel *sortDescriptionLabel;
 
 @end
 
@@ -43,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         
-    self.dataCount = 0;
+    self.currentSortOption = SortOptionDeparture;
     
     [self.homeView.journeysTableView registerClass:[JourneyTableViewCell class] forCellReuseIdentifier:KEGJourneyCellID];
     
@@ -75,6 +81,32 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor goEuroColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    if (!self.navigationItem.leftBarButtonItem) {
+        CGRect sortRect = CGRectMake(0, 0, 25, 25);
+        UIImage *sortImage = [UIImage imageForIdentifier:ImageIdentifierSort];
+        
+        UIButton *sortButton = [[UIButton alloc] initWithFrame:sortRect];
+        [sortButton setImage:sortImage forState:UIControlStateNormal];
+        [sortButton setTitle:[KEGLocalizable localizedString:LocalizableIdentifierDeparture] forState:UIControlStateNormal];
+        [sortButton addTarget:self action:@selector(presentSortOptions) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:sortButton];
+        self.navigationItem.leftBarButtonItem = barButton;
+        
+        UILabel *sortLabel = [[UILabel alloc] init];
+        sortLabel.text = [KEGLocalizable localizedString:LocalizableIdentifierDeparture];
+        sortLabel.font = [UIFont goEuroFont:GoEuroFontRegular size:15];
+        sortLabel.textColor = [UIColor whiteColor];
+        [sortLabel sizeToFit];
+        
+        UIBarButtonItem *sortBarLabel = [[UIBarButtonItem alloc] initWithCustomView:sortLabel];
+        
+        self.navigationItem.leftBarButtonItems = @[barButton, sortBarLabel];
+        
+        self.sortBarButton = barButton;
+        self.sortDescriptionLabel = sortLabel;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +118,9 @@
     if (!self.currentJourneys) {
         self.currentTravelMode = travelMode;
         self.currentJourneys = journeys;
+        
+        [self sortItems];
+        
         self.homeView.journeysTableView.dataSource = self;
         self.homeView.journeysTableView.delegate = self;
         self.homeView.selectorView.delegate = self;
@@ -150,7 +185,37 @@
             break;
     }
     
+    [self sortItems];
+    
     [self.homeView reloadTableAnimated];
+}
+
+#pragma mark - Alert view delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    SortOption option = buttonIndex;
+    
+    if (self.currentSortOption != option) {
+        
+        self.currentSortOption = option;
+        self.sortDescriptionLabel.text = [alertView buttonTitleAtIndex:buttonIndex];
+        
+        [self sortItems];
+        [self.homeView reloadTableAnimated];
+    }
+}
+
+#pragma mark - Actions
+
+- (void)presentSortOptions {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[KEGLocalizable localizedString:LocalizableIdentifierSortBy] message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: [KEGLocalizable localizedString:LocalizableIdentifierArrival], [KEGLocalizable localizedString:LocalizableIdentifierDeparture], [KEGLocalizable localizedString:LocalizableIdentifierDuration], [KEGLocalizable localizedString:LocalizableIdentifierPrice], nil];
+    [alertView show];
+}
+
+- (void)sortItems {
+    NSSortDescriptor *descriptor = [KEGJourney sortDescriptorForOption:self.currentSortOption];
+    self.currentJourneys = [self.currentJourneys sortedArrayUsingDescriptors:@[descriptor]];
 }
 
 @end

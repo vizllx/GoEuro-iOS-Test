@@ -13,3 +13,7 @@
 "ErrorWrongObject" = "Hmm... We're having problems with our system. Try again later, please.";
 "ErrorNoData" = "Hmm... We coulnd't retrive data right now. Please, try again later.";
 "Duration" = "Duration";
+"SortBy" = "Sort by...";
+"Departure" = "Departure";
+"Arrival" = "Arrival";
+"Price" = "Price";

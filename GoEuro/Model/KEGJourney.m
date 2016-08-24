@@ -108,4 +108,28 @@
     return journeys;
 }
 
++ (NSSortDescriptor *)sortDescriptorForOption:(SortOption)option {
+    
+    NSString *property = nil;
+    
+    switch (option) {
+        case SortOptionArrival:
+            property = @"arrivalTime";
+            break;
+        case SortOptionDeparture:
+            property = @"departureTime";
+            break;
+        case SortOptionDuration:
+            property = @"duration";
+            break;
+        case SortOptionPrice:
+            property = @"price";
+            break;
+    }
+    
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:property ascending:YES];
+    
+    return descriptor;
+}
+
 @end

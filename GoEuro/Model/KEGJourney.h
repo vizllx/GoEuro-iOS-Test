@@ -15,6 +15,13 @@ typedef NS_ENUM(NSUInteger, TravelModeType) {
     TravelModeTypeFlight,
 };
 
+typedef NS_ENUM(NSUInteger, SortOption) {
+    SortOptionArrival = 0,
+    SortOptionDeparture,
+    SortOptionDuration,
+    SortOptionPrice
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol KEGJourneyProtocol <NSObject>
@@ -26,17 +33,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KEGJourney : NSObject
 
-
-
+@property (assign, nonatomic) CGFloat price;
 @property (assign, nonatomic) NSInteger numberOfChanges;
 @property (assign, nonatomic) NSInteger objectID;
 @property (assign, nonatomic) NSTimeInterval arrivalTime;
 @property (assign, nonatomic) NSTimeInterval departureTime;
 @property (assign, nonatomic) NSTimeInterval duration;
-@property (assign, nonatomic) CGFloat price;
+@property (assign, nonatomic) TravelModeType type;
 @property (strong, nonatomic) NSString *icon;
 @property (strong, nonatomic) NSURL *providerLogoURL;
-@property (assign, nonatomic) TravelModeType type;
 
 - (instancetype)initWithJSON:(NSDictionary <NSString *, id> *)object type:(TravelModeType)type NS_DESIGNATED_INITIALIZER;
 
@@ -45,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)webServicePathForTravelMode:(TravelModeType)travelMode;
 
 + (NSArray <KEGJourney *>*)journeysFromObjects:(NSArray *)object withType:(TravelModeType)type;
+
++ (NSSortDescriptor *)sortDescriptorForOption:(SortOption)option;
 
 @end
 

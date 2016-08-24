@@ -15,7 +15,11 @@ typedef NS_ENUM(NSUInteger, LocalizableIdentifier) {
     LocalizableIdentifierErrorInternetConnection,
     LocalizableIdentifierErrorWrongObject,
     LocalizableIdentifierErrorNoData,
-    LocalizableIdentifierDuration
+    LocalizableIdentifierDuration,
+    LocalizableIdentifierSortBy,
+    LocalizableIdentifierArrival,
+    LocalizableIdentifierDeparture,
+    LocalizableIdentifierPrice
 };
 
 @interface KEGLocalizable : NSObject

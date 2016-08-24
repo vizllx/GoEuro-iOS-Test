@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, ImageIdentifier) {
+    ImageIdentifierLogo,
+    ImageIdentifierSort
+};
+
 @interface UIImage (EnumInitializer)
+
++ (instancetype)imageForIdentifier:(ImageIdentifier)identifier;
 
 @end

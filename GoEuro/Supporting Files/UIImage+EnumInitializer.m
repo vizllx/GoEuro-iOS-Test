@@ -8,11 +8,6 @@
 
 #import "UIImage+EnumInitializer.h"
 
-typedef NS_ENUM(NSUInteger, ImageIdentifier) {
-    ImageIdentifierLogo,
-    ImageIdentifierSort
-};
-
 @implementation UIImage (EnumInitializer)
 
 + (instancetype)imageForIdentifier:(ImageIdentifier)identifier {

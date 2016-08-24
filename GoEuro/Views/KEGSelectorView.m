@@ -190,10 +190,12 @@ typedef NS_ENUM(NSUInteger, SelectionState) {
 #pragma mark - Actions
 
 - (void)userDidTapSelectionButton:(KEGSelectorViewButton *)button {
-    TravelModeType userSelectedTravelMode = button.travelMode;
-    [self.delegate selectionWillChangeToTravelMode:userSelectedTravelMode];
-    
-    [self selectTravelMode:userSelectedTravelMode];
+    if (self.currentTravelMode != button.travelMode) {
+        TravelModeType userSelectedTravelMode = button.travelMode;
+        [self.delegate selectionWillChangeToTravelMode:userSelectedTravelMode];
+        
+        [self selectTravelMode:userSelectedTravelMode];
+    }
 }
 
 @end
