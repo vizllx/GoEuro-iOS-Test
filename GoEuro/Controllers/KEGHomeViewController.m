@@ -119,6 +119,8 @@
         self.homeView.journeysTableView.delegate = self;
         self.homeView.selectorView.delegate = self;
         [self.homeView.selectorView changeSelectionTo:self.currentTravelMode];
+        
+        [self.homeView showJourneys];
     }
 }
 

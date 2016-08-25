@@ -21,5 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 - (void)reloadTableAnimated;
+- (void)showJourneys;
 
 @end

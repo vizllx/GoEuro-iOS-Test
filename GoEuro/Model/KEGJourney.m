@@ -39,12 +39,14 @@
         NSString *departureTimeString = object[@"departure_time"];
         NSString *arrivalTimeString = object[@"arrival_time"];
         
+        //TODO: proper implementation
         if (departureTimeString) {
             self.departureTime = [departureTimeString convertToTimeInterval];
         } else {
             self.departureTime = -1;
         }
         
+        //TODO: proper implementation
         if (arrivalTimeString) {
             self.arrivalTime = [arrivalTimeString convertToTimeInterval];
         } else {
@@ -56,6 +58,9 @@
 }
 
 - (NSTimeInterval)duration {
+    
+    //TODO: proper implementation
+    
     NSTimeInterval arrivalTime = self.arrivalTime;
     if (self.departureTime > self.arrivalTime) {
         arrivalTime += 86400; // adding one day to compensate

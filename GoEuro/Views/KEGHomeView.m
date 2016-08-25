@@ -59,6 +59,9 @@ typedef NS_ENUM(NSUInteger, CellAnimation) {
 }
 
 - (void)setupView {
+    self.backgroundColor = [UIColor whiteColor];
+    
+    self.journeysTableView.alpha = 0;
     
     [self addSubview:self.selectorView];
     [self addSubview:self.journeysTableView];
@@ -159,6 +162,12 @@ typedef NS_ENUM(NSUInteger, CellAnimation) {
             cell.alpha = 1;
         }];
     }
+}
+
+- (void)showJourneys {
+    [UIView animateWithDuration:0.15 animations:^{
+        self.journeysTableView.alpha = 1;
+    }];
 }
 
 @end
