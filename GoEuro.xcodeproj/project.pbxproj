@@ -160,14 +160,14 @@
 				0A86F8C21D64BF5200192D38 /* AppDelegate.h */,
 				0A86F8C31D64BF5200192D38 /* AppDelegate.m */,
 				0A86F8CB1D64BF5200192D38 /* Assets.xcassets */,
-				0A86F8D01D64BF5200192D38 /* Info.plist */,
-				0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */,
-				0A86F8C01D64BF5200192D38 /* main.m */,
-				0A86F8ED1D64DD1B00192D38 /* GoEuro-Bridging-Header.h */,
 				0A86F8FA1D64EAEC00192D38 /* Categories */,
+				0A86F8ED1D64DD1B00192D38 /* GoEuro-Bridging-Header.h */,
+				0A86F8D01D64BF5200192D38 /* Info.plist */,
 				0A86F91E1D66AFCB00192D38 /* KEGLocalizable.h */,
 				0A86F91F1D66AFCB00192D38 /* KEGLocalizable.m */,
+				0A86F8CD1D64BF5200192D38 /* LaunchScreen.storyboard */,
 				0A86F9251D66B1D200192D38 /* Localizable.strings */,
+				0A86F8C01D64BF5200192D38 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,12 +202,12 @@
 				0A86F9171D6692A600192D38 /* KEGConfigurableJourneyTableViewCell.h */,
 				0A86F8E91D64C08000192D38 /* KEGHomeView.h */,
 				0A86F8EA1D64C08000192D38 /* KEGHomeView.m */,
+				0A7066341D6EB551003F318C /* KEGJourneyDetailView.h */,
+				0A7066351D6EB551003F318C /* KEGJourneyDetailView.m */,
 				0A86F9181D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.h */,
 				0A86F9191D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m */,
 				0A86F92D1D69846500192D38 /* KEGSelectorView.h */,
 				0A86F92E1D69846500192D38 /* KEGSelectorView.m */,
-				0A7066341D6EB551003F318C /* KEGJourneyDetailView.h */,
-				0A7066351D6EB551003F318C /* KEGJourneyDetailView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -215,14 +215,14 @@
 		0A86F8FA1D64EAEC00192D38 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0A86F8EE1D64DD1B00192D38 /* Extensions.swift */,
 				0A86F8F71D64EAC100192D38 /* UIColor+GoEuroColor.h */,
 				0A86F8F81D64EAC100192D38 /* UIColor+GoEuroColor.m */,
 				0A86F8F01D64DF3800192D38 /* UIImage+EnumInitializer.h */,
 				0A86F8F11D64DF3800192D38 /* UIImage+EnumInitializer.m */,
-				0A86F8EE1D64DD1B00192D38 /* Extensions.swift */,
-				0A86F8FB1D64EB2B00192D38 /* UIStuffHeader.h */,
 				0A7066311D6CA860003F318C /* UIScrollView+Direction.h */,
 				0A7066321D6CA860003F318C /* UIScrollView+Direction.m */,
+				0A86F8FB1D64EB2B00192D38 /* UIStuffHeader.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -239,12 +239,12 @@
 		0A86F90E1D65AA1900192D38 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0A86F9061D6539F600192D38 /* KEGWebService.h */,
-				0A86F9071D6539F600192D38 /* KEGWebService.m */,
 				0A86F9271D66DFE300192D38 /* KEGDataGatherer.h */,
 				0A86F9281D66DFE300192D38 /* KEGDataGatherer.m */,
 				0A86F92A1D670CDE00192D38 /* KEGLocalDataGatherer.h */,
 				0A86F92B1D670CDE00192D38 /* KEGLocalDataGatherer.m */,
+				0A86F9061D6539F600192D38 /* KEGWebService.h */,
+				0A86F9071D6539F600192D38 /* KEGWebService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
