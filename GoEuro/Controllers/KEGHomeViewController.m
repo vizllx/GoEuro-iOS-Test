@@ -15,6 +15,7 @@
 #import "KEGSelectorView.h"
 #import "UIImage+EnumInitializer.h"
 #import "KEGLocalizable.h"
+#import "KEGJourneyDetailViewController.h"
 
 #define KEGJourneyCellID @"KEGJourneyCellID"
 
@@ -33,8 +34,7 @@
 
 @property (assign, nonatomic) SortOption currentSortOption;
 
-@property (weak, nonatomic) UIBarButtonItem *sortBarButton;
-@property (weak, nonatomic) UILabel *sortDescriptionLabel;
+@property (weak, nonatomic) UIButton *sortBarButton;
 
 @end
 
@@ -83,29 +83,23 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     if (!self.navigationItem.leftBarButtonItem) {
-        CGRect sortRect = CGRectMake(0, 0, 25, 25);
         UIImage *sortImage = [UIImage imageForIdentifier:ImageIdentifierSort];
+        CGRect sortRect = CGRectMake(0, 0, 100, 25);
         
-        UIButton *sortButton = [[UIButton alloc] initWithFrame:sortRect];
+        UIButton *sortButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [sortButton setImage:sortImage forState:UIControlStateNormal];
         [sortButton setTitle:[KEGLocalizable localizedString:LocalizableIdentifierDeparture] forState:UIControlStateNormal];
+        sortButton.titleLabel.font = [UIFont goEuroFont:GoEuroFontThin size:15];
+        sortButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        sortButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 75);
+        sortButton.titleEdgeInsets = UIEdgeInsetsMake(0, -80, 0, 0);
+        sortButton.frame = sortRect;
         [sortButton addTarget:self action:@selector(presentSortOptions) forControlEvents:UIControlEventTouchUpInside];
         
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:sortButton];
         self.navigationItem.leftBarButtonItem = barButton;
         
-        UILabel *sortLabel = [[UILabel alloc] init];
-        sortLabel.text = [KEGLocalizable localizedString:LocalizableIdentifierDeparture];
-        sortLabel.font = [UIFont goEuroFont:GoEuroFontRegular size:15];
-        sortLabel.textColor = [UIColor whiteColor];
-        [sortLabel sizeToFit];
-        
-        UIBarButtonItem *sortBarLabel = [[UIBarButtonItem alloc] initWithCustomView:sortLabel];
-        
-        self.navigationItem.leftBarButtonItems = @[barButton, sortBarLabel];
-        
-        self.sortBarButton = barButton;
-        self.sortDescriptionLabel = sortLabel;
+        self.sortBarButton = sortButton;
     }
 }
 
@@ -168,6 +162,13 @@
     [self.homeView animateCell:cell];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    KEGJourney *journey = self.currentJourneys[indexPath.row];
+    KEGJourneyDetailViewController *journeyDetailViewController = [[KEGJourneyDetailViewController alloc] initWithJouney:journey];
+    [self.navigationController pushViewController:journeyDetailViewController animated:YES];
+}
+
 #pragma mark - Selector view delegate
 
 - (void)selectionWillChangeToTravelMode:(TravelModeType)travelMode {
@@ -199,7 +200,7 @@
     if (self.currentSortOption != option) {
         
         self.currentSortOption = option;
-        self.sortDescriptionLabel.text = [alertView buttonTitleAtIndex:buttonIndex];
+        [self.sortBarButton setTitle:[alertView buttonTitleAtIndex:buttonIndex] forState:UIControlStateNormal];
         
         [self sortItems];
         [self.homeView reloadTableAnimated];
@@ -214,8 +215,18 @@
 }
 
 - (void)sortItems {
-    NSSortDescriptor *descriptor = [KEGJourney sortDescriptorForOption:self.currentSortOption];
-    self.currentJourneys = [self.currentJourneys sortedArrayUsingDescriptors:@[descriptor]];
+    
+    NSArray <NSSortDescriptor *> *descriptors;
+    
+    NSSortDescriptor *priceSortDescriptor = [KEGJourney sortDescriptorForOption:SortOptionPrice];
+    
+    if (self.currentSortOption == SortOptionPrice) {
+        descriptors = @[priceSortDescriptor, [KEGJourney sortDescriptorForOption:SortOptionDuration]];
+    } else {
+        descriptors = @[[KEGJourney sortDescriptorForOption:self.currentSortOption], priceSortDescriptor];
+    }
+    
+    self.currentJourneys = [self.currentJourneys sortedArrayUsingDescriptors:descriptors];
 }
 
 @end

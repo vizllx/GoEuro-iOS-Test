@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A7066331D6CA860003F318C /* UIScrollView+Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7066321D6CA860003F318C /* UIScrollView+Direction.m */; };
+		0A7066361D6EB551003F318C /* KEGJourneyDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7066351D6EB551003F318C /* KEGJourneyDetailView.m */; };
+		0A7066391D6EB7C7003F318C /* KEGJourneyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7066381D6EB7C7003F318C /* KEGJourneyDetailViewController.m */; };
 		0A86F8C11D64BF5200192D38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8C01D64BF5200192D38 /* main.m */; };
 		0A86F8C41D64BF5200192D38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A86F8C31D64BF5200192D38 /* AppDelegate.m */; };
 		0A86F8CC1D64BF5200192D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A86F8CB1D64BF5200192D38 /* Assets.xcassets */; };
@@ -47,6 +49,10 @@
 /* Begin PBXFileReference section */
 		0A7066311D6CA860003F318C /* UIScrollView+Direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Direction.h"; path = "Supporting Files/UIScrollView+Direction.h"; sourceTree = "<group>"; };
 		0A7066321D6CA860003F318C /* UIScrollView+Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Direction.m"; path = "Supporting Files/UIScrollView+Direction.m"; sourceTree = "<group>"; };
+		0A7066341D6EB551003F318C /* KEGJourneyDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGJourneyDetailView.h; path = Views/KEGJourneyDetailView.h; sourceTree = "<group>"; };
+		0A7066351D6EB551003F318C /* KEGJourneyDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGJourneyDetailView.m; path = Views/KEGJourneyDetailView.m; sourceTree = "<group>"; };
+		0A7066371D6EB7C7003F318C /* KEGJourneyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KEGJourneyDetailViewController.h; path = Controllers/KEGJourneyDetailViewController.h; sourceTree = "<group>"; };
+		0A7066381D6EB7C7003F318C /* KEGJourneyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KEGJourneyDetailViewController.m; path = Controllers/KEGJourneyDetailViewController.m; sourceTree = "<group>"; };
 		0A86F8BC1D64BF5200192D38 /* GoEuro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoEuro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A86F8C01D64BF5200192D38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0A86F8C21D64BF5200192D38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -183,6 +189,8 @@
 			children = (
 				0A86F8E51D64C00300192D38 /* KEGHomeViewController.h */,
 				0A86F8E61D64C00300192D38 /* KEGHomeViewController.m */,
+				0A7066371D6EB7C7003F318C /* KEGJourneyDetailViewController.h */,
+				0A7066381D6EB7C7003F318C /* KEGJourneyDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -198,6 +206,8 @@
 				0A86F9191D669B1E00192D38 /* KEGJourneyTableViewCell+ConfigurableCell.m */,
 				0A86F92D1D69846500192D38 /* KEGSelectorView.h */,
 				0A86F92E1D69846500192D38 /* KEGSelectorView.m */,
+				0A7066341D6EB551003F318C /* KEGJourneyDetailView.h */,
+				0A7066351D6EB551003F318C /* KEGJourneyDetailView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -462,6 +472,7 @@
 				0A86F9081D6539F600192D38 /* KEGWebService.m in Sources */,
 				0A86F8C41D64BF5200192D38 /* AppDelegate.m in Sources */,
 				0A86F8EF1D64DD1B00192D38 /* Extensions.swift in Sources */,
+				0A7066391D6EB7C7003F318C /* KEGJourneyDetailViewController.m in Sources */,
 				0A86F9031D64F8F400192D38 /* KEGJourney.m in Sources */,
 				0A86F8EB1D64C08000192D38 /* KEGHomeView.m in Sources */,
 				0A86F8F21D64DF3800192D38 /* UIImage+EnumInitializer.m in Sources */,
@@ -473,6 +484,7 @@
 				0A86F92C1D670CDE00192D38 /* KEGLocalDataGatherer.m in Sources */,
 				0A86F8F91D64EAC100192D38 /* UIColor+GoEuroColor.m in Sources */,
 				0A86F9201D66AFCB00192D38 /* KEGLocalizable.m in Sources */,
+				0A7066361D6EB551003F318C /* KEGJourneyDetailView.m in Sources */,
 				0A86F9291D66DFE300192D38 /* KEGDataGatherer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

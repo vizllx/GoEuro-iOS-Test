@@ -25,6 +25,7 @@
     KEGHomeViewController *homeViewController = [[KEGHomeViewController alloc] init];
     UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     
+    // This window initialization is necessary as iOS 8< doesn't play well with [[UIWindow alloc] init] or [[UIWindow alloc] initWithFrame:CGRectZero]
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];

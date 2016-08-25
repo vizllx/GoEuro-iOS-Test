@@ -17,3 +17,5 @@
 "Departure" = "Departure";
 "Arrival" = "Arrival";
 "Price" = "Price";
+"NotImplemented" = "Feature not implemented... yet.";
+"JourneyDetailsTitle" = "Journey details";

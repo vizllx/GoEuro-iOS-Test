@@ -13,6 +13,8 @@
 #define KEGSelectionButtonTitleFontSize 18
 #define KEGSelectionViewWidth 35
 
+#define KEGChangeSelectionAnimationDuration 0.35
+
 @interface KEGSelectorViewButton : UIButton
 
 @property (assign, nonatomic) TravelModeType travelMode;
@@ -147,13 +149,12 @@ typedef NS_ENUM(NSUInteger, SelectionState) {
     CGRect currentSelectionRect = self.selectionView.frame;
     
     if (CGRectEqualToRect(currentSelectionRect, CGRectZero)) {
-        currentSelectionRect = CGRectMake([self selectionViewXValueWithSelectedView:newSelectedView], [self selectionViewBaseYValue], KEGSelectionViewWidth, KEGSelectionViewHeight);
+         self.selectionView.frame = CGRectMake([self selectionViewXValueWithSelectedView:newSelectedView], [self selectionViewBaseYValue], KEGSelectionViewWidth, 0);
     }
     
-    [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
+    [UIView animateWithDuration:KEGChangeSelectionAnimationDuration animations:^{
         self.selectionView.frame = CGRectMake([self selectionViewXValueWithSelectedView:newSelectedView], [self selectionViewBaseYValue], KEGSelectionViewWidth, KEGSelectionViewHeight);
-    } completion:nil];
+    }];
 
     self.currentTravelMode = travelMode;
 }

@@ -51,6 +51,12 @@
         case LocalizableIdentifierPrice:
             value = @"Price";
             break;
+        case LocalizableIdentifierNotImplemented:
+            value = @"NotImplemented";
+            break;
+        case LocalizableIdentifierJourneyDetailsTitle:
+            value = @"JourneyDetailsTitle";
+            break;
     }
     
     return value;

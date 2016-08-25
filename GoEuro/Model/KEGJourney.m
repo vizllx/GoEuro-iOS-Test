@@ -28,6 +28,7 @@
         self.numberOfChanges = [object[@"number_of_stops"] integerValue];
         self.objectID = [object[@"id"] integerValue];
         self.price = [object[@"price_in_euros"] floatValue];
+        self.icon = [self iconForTravelMode:type];
         
         NSString *providerLogo = object[@"provider_logo"];
         

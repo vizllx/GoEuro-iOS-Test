@@ -19,7 +19,9 @@ typedef NS_ENUM(NSUInteger, LocalizableIdentifier) {
     LocalizableIdentifierSortBy,
     LocalizableIdentifierArrival,
     LocalizableIdentifierDeparture,
-    LocalizableIdentifierPrice
+    LocalizableIdentifierPrice,
+    LocalizableIdentifierNotImplemented,
+    LocalizableIdentifierJourneyDetailsTitle
 };
 
 @interface KEGLocalizable : NSObject

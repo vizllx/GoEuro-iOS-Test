@@ -48,14 +48,14 @@ class JourneyTableViewCell: UITableViewCell {
     
     internal let journeyInfoLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.goEuroFont(.Thin, size: 18)
+        label.font = UIFont.goEuroFont(.Thin, size: 16)
         label.textColor = UIColor.goEuroFontColor()
         return label
     }()
     
     internal let durationLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.goEuroFont(.Thin, size: 18)
+        label.font = UIFont.goEuroFont(.Thin, size: 16)
         label.textColor = UIColor.goEuroFontColor()
         return label
     }()
