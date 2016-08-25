@@ -65,11 +65,14 @@
             NSError *connectionError = error;
             NSArray *journeys = nil;
             
-            if ([error.domain isEqualToString:KEGWebServiceErrorDomain] && error.code == WebServiceErrorInternetConnectionNotAvailable) {
+            if (connectionError) {
                 
                 NSArray *localObjects = [KEGLocalDataGatherer recoverLocalDataForTravelMode:travelMode];
+                
                 if (localObjects) {
                     journeys = [KEGJourney journeysFromObjects:localObjects withType:travelMode];
+                } else {
+                    connectionError = [NSError errorWithDomain:KEGDataErrorDomain code:DataGatheringErrorNoData userInfo:@{ NSLocalizedDescriptionKey : [KEGLocalizable localizedString:LocalizableIdentifierErrorNoData] }];
                 }
                 
             } else {

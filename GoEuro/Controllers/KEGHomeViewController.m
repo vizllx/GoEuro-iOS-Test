@@ -22,18 +22,15 @@
 @interface KEGHomeViewController () <UITableViewDelegate, UITableViewDataSource, KEGSelectionViewDelegate, UIAlertViewDelegate>
 
 
-@property (weak, nonatomic) KEGHomeView * __nullable homeView;
-
+@property (assign, nonatomic) SortOption currentSortOption;
 @property (assign, nonatomic) TravelModeType currentTravelMode;
 
-@property (strong, nonatomic) NSArray <KEGJourney *> * __nullable trains;
+@property (strong, atomic) NSArray <KEGJourney *> * __nullable currentJourneys;
 @property (strong, nonatomic) NSArray <KEGJourney *> * __nullable buses;
 @property (strong, nonatomic) NSArray <KEGJourney *> * __nullable flights;
+@property (strong, nonatomic) NSArray <KEGJourney *> * __nullable trains;
 
-@property (strong, atomic) NSArray <KEGJourney *> * __nullable currentJourneys;
-
-@property (assign, nonatomic) SortOption currentSortOption;
-
+@property (weak, nonatomic) KEGHomeView * __nullable homeView;
 @property (weak, nonatomic) UIButton *sortBarButton;
 
 @end
@@ -54,24 +51,42 @@
     [self.homeView.journeysTableView registerClass:[JourneyTableViewCell class] forCellReuseIdentifier:KEGJourneyCellID];
     
     [KEGDataGatherer gatherJourneyDataForTravelMode:TravelModeTypeBus withPath:[KEGJourney webServicePathForTravelMode:TravelModeTypeBus] withCompletionHandler:^(NSArray<KEGJourney *> *journeys, DataResponseType responseType) {
+        
         self.buses = journeys;
         [self dataGatheringPartialCompletion:journeys travelMode:TravelModeTypeBus];
-    } failure:^(NSError *error) {
         
+        if (responseType == DataResponseTypeOffline) {
+            [self.homeView showOfflineWarning];
+        }
+        
+    } failure:^(NSError *error) {
+        [self showAlertViewWithTitle:@"Error" message:error.localizedDescription];
     }];
     
     [KEGDataGatherer gatherJourneyDataForTravelMode:TravelModeTypeTrain withPath:[KEGJourney webServicePathForTravelMode:TravelModeTypeTrain] withCompletionHandler:^(NSArray<KEGJourney *> *journeys, DataResponseType responseType) {
+        
         self.trains = journeys;
         [self dataGatheringPartialCompletion:journeys travelMode:TravelModeTypeTrain];
-    } failure:^(NSError *error) {
         
+        if (responseType == DataResponseTypeOffline) {
+            [self.homeView showOfflineWarning];
+        }
+        
+    } failure:^(NSError *error) {
+        [self showAlertViewWithTitle:@"Error" message:error.localizedDescription];
     }];
     
     [KEGDataGatherer gatherJourneyDataForTravelMode:TravelModeTypeFlight withPath:[KEGJourney webServicePathForTravelMode:TravelModeTypeFlight] withCompletionHandler:^(NSArray<KEGJourney *> *journeys, DataResponseType responseType) {
+        
         self.flights = journeys;
         [self dataGatheringPartialCompletion:journeys travelMode:TravelModeTypeFlight];
-    } failure:^(NSError *error) {
         
+        if (responseType == DataResponseTypeOffline) {
+            [self.homeView showOfflineWarning];
+        }
+        
+    } failure:^(NSError *error) {
+        [self showAlertViewWithTitle:@"Error" message:error.localizedDescription];
     }];
 }
 
@@ -83,13 +98,15 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     if (!self.navigationItem.leftBarButtonItem) {
+        
+        //TODO: Change this ugly thing
         UIImage *sortImage = [UIImage imageForIdentifier:ImageIdentifierSort];
         CGRect sortRect = CGRectMake(0, 0, 100, 25);
         
         UIButton *sortButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [sortButton setImage:sortImage forState:UIControlStateNormal];
         [sortButton setTitle:[KEGLocalizable localizedString:LocalizableIdentifierDeparture] forState:UIControlStateNormal];
-        sortButton.titleLabel.font = [UIFont goEuroFont:GoEuroFontThin size:15];
+        sortButton.titleLabel.font = [UIFont goEuroFont:GoEuroFontThin size:12];
         sortButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         sortButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 75);
         sortButton.titleEdgeInsets = UIEdgeInsetsMake(0, -80, 0, 0);
@@ -101,6 +118,8 @@
         
         self.sortBarButton = sortButton;
     }
+    
+    self.title = @"Toussaint → Berlin";
 }
 
 - (void)didReceiveMemoryWarning {

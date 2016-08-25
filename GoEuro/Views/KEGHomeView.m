@@ -9,6 +9,7 @@
 #import "KEGHomeView.h"
 #import "UIStuffHeader.h"
 #import "UIScrollView+Direction.h"
+#import "KEGLocalizable.h"
 
 #define KEG_HOME_BUTTONS_CONTAINER_HEIGHT 45
 #define KEG_HOME_BUTTON_HEIGHT 40
@@ -40,6 +41,19 @@ typedef NS_ENUM(NSUInteger, CellAnimation) {
         _journeysTableView = [[UITableView alloc] init];
     }
     return _journeysTableView;
+}
+
+- (UILabel *)offlineLabel {
+    if (!_offlineLabel) {
+        _offlineLabel = [[UILabel alloc] init];
+        _offlineLabel.text = [KEGLocalizable localizedString:LocalizableIdentifierOffline];
+        _offlineLabel.textColor = [UIColor blackColor];
+        _offlineLabel.layer.shadowColor = [UIColor grayColor].CGColor;
+        _offlineLabel.layer.shadowOpacity = 1;
+        _offlineLabel.layer.shadowRadius = 1;
+        _offlineLabel.layer.shadowOffset = CGSizeZero;
+    }
+    return _offlineLabel;
 }
 
 #pragma mark - Init
@@ -80,6 +94,10 @@ typedef NS_ENUM(NSUInteger, CellAnimation) {
     CGFloat carouselHeight = self.bounds.size.height - carouselOrigin.y;
     
     self.journeysTableView.frame = CGRectMake(carouselOrigin.x, carouselOrigin.y, maxWidth, carouselHeight);
+    
+    [self.offlineLabel sizeToFit];
+    [self bringSubviewToFront:self.offlineLabel];
+    self.offlineLabel.frame = CGRectMake(self.frameMiddle.x - self.offlineLabel.boundsMiddle.x, self.selectorView.frameMaxY + 10, self.offlineLabel.bounds.size.width, self.offlineLabel.bounds.size.height);
 }
 
 #pragma mark - Animations
@@ -168,6 +186,13 @@ typedef NS_ENUM(NSUInteger, CellAnimation) {
     [UIView animateWithDuration:0.15 animations:^{
         self.journeysTableView.alpha = 1;
     }];
+}
+
+- (void)showOfflineWarning {
+    if (!self.offlineLabel.superview) {
+        [self insertSubview:self.offlineLabel atIndex:0];
+        [self layoutIfNeeded];
+    }
 }
 
 @end

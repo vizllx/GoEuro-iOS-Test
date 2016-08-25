@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) KEGSelectorView *selectorView;
 @property (strong, nonatomic) UITableView *journeysTableView;
+@property (strong, nonatomic) UILabel *offlineLabel;
 
 - (void)animateCell:(UITableViewCell *)cell;
 
@@ -22,5 +23,6 @@ NS_ASSUME_NONNULL_END
 
 - (void)reloadTableAnimated;
 - (void)showJourneys;
+- (void)showOfflineWarning;
 
 @end

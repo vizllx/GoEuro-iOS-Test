@@ -57,6 +57,9 @@
         case LocalizableIdentifierJourneyDetailsTitle:
             value = @"JourneyDetailsTitle";
             break;
+        case LocalizableIdentifierOffline:
+            value = @"Offline";
+            break;
     }
     
     return value;

@@ -117,7 +117,8 @@ extension UIFont {
 extension NSURL {
     
     @objc static var documentsURL: NSURL {
-        return try! NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
+        let pathString = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!
+        return NSURL(string: pathString)!
     }
     
 }
@@ -145,6 +146,26 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return image
+    }
+    
+}
+
+extension UIViewController {
+    
+    @objc func showAlertViewWithTitle(title: String, message: String) {
+        
+        if #available(iOS 9.0, *) {
+            let alertController = UIAlertController.init(title: title, message: message, preferredStyle: .Alert)
+            let action = UIAlertAction.init(title: "OK", style: .Cancel, handler: { (action) in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alertController.addAction(action)
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            let alertView = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: "OK")
+            alertView.show()
+        }
+        
     }
     
 }

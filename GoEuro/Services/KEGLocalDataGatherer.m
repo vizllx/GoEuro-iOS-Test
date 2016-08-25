@@ -12,14 +12,15 @@
 @implementation KEGLocalDataGatherer
 
 + (void)saveDataLocally:(NSArray *)data forTravelMode:(TravelModeType)travelMode {
-    
+    NSData *objectData = [NSKeyedArchiver archivedDataWithRootObject:data];
     NSURL *localURL = [KEGLocalDataGatherer localURLForTravelMode:travelMode];
-    [data writeToFile:localURL.absoluteString atomically:YES];
+    [objectData writeToFile:localURL.absoluteString atomically:YES];
 }
 
 + (NSArray *)recoverLocalDataForTravelMode:(TravelModeType)travelMode {
     NSURL *localURL = [KEGLocalDataGatherer localURLForTravelMode:travelMode];
-    NSArray *array = [NSArray arrayWithContentsOfFile:localURL.absoluteString];
+    NSData *data = [NSData dataWithContentsOfFile:localURL.absoluteString];
+    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     return array;
 }
 
